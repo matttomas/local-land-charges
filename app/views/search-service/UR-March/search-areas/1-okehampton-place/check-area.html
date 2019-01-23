@@ -3,7 +3,7 @@
 {% from "table/macro.njk" import govukTable %}
 
 {% block pageTitle %}
-  Your payment was successful
+  You are searching for charges in 13 Okehampton Place, Exeter EX4 1AY
 {% endblock %}
 
 {% block header %}
@@ -27,15 +27,15 @@
       </div>
       <div class="govuk-header__content">
 
-        <a href="start.html" class="govuk-header__link govuk-header__link--service-name">
+        <a href="../../start.html" class="govuk-header__link govuk-header__link--service-name">
           Search for local land charges
         </a>
 
-        <a class="govuk-header__link header_link_right govuk-!-padding-top-1" href="register.html">
+        <a class="govuk-header__link header_link_right govuk-!-padding-top-1" href="../../register.html">
           Register
         </a>
 
-        <a class="govuk-!-margin-right-3 govuk-header__link header_link_right govuk-!-padding-top-1" href="sign-in.html">
+        <a class="govuk-!-margin-right-3 govuk-header__link header_link_right govuk-!-padding-top-1" href="../../sign-in.html">
           Sign in
         </a>
 
@@ -45,57 +45,48 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% from "phase-banner/macro.njk" import govukPhaseBanner %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "beta"
-    },
-    html: 'This is a new service – your <a class="govuk-link" href="https://wh.snapsurveys.com/s.asp?k=153028289271">feedback</a> will help us to improve it.'
-  }) }}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  beta
+</strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your
+      <a class="govuk-link" href="https://wh.snapsurveys.com/s.asp?k=153028289271">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Your payment was successful</h1>
 
-    <h2 class="govuk-heading-m">Your payment reference number is<br>1B7183</h2>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-3">You are searching for charges in</h1>
 
-    <p class="govuk-body">We have sent you a receipt by email.
+    <p class="govuk-body govuk-!-font-weight-bold">1 Okehampton Place, Exeter EX4 1AY</p>
 
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header" scope="col">Amount</th>
-          <th class="govuk-table__header" scope="col">Date</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header govuk-!-font-weight-regular" scope="row">£15.00</th>
-          <td class="govuk-table__cell">Official search result of local land charges</td>
-        </tr>
-      </tbody>
-    </table>
+    <p class="govuk-body"><a href="search-area-description">Choose a different address</a></p>
 
-    <p class="govuk-body">You can download your search result on the next page</p>
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text govuk-!-font-weight-regular">
+        <span class="govuk-warning-text__assistive">Warning</span>
+          You can't change your search area after you've paid.<br>
+          This will be used on your search result, to describe where you have searched.
+      </strong>
+    </div>
 
-    {% if data['address'] == 'number_1' %}
-    <form action="search-areas/1-okehampton-place/view.html">
-      <button class="govuk-button" type="submit">
-        Continue to search result
+    <p class="govuk-body">
+      Your payment will be processed by our payment service provider,
+      WorldPay, through GOV.UK Pay. You should refer to the Privacy Notices of those organisations
+      for details of how your personal data is used.
+    </p>
+
+    <form action="../../gov-pay1" class="govuk-!-margin-top-7">
+      <button type="submit" class="govuk-button">
+        Continue
       </button>
     </form>
-    {% else %}
-    <form action="search-areas/13-okehampton-place/view.html">
-      <button class="govuk-button" type="submit">
-        Continue to search result
-      </button>
-    </form>
-    {% endif %}
-
-
-
   </div>
 </div>
 {% endblock %}
